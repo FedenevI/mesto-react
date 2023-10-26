@@ -18,6 +18,7 @@ export default function Main({onEditProfile, onAddPlace, onEditAvatar, onCardOpe
         dataCard.forEach(element => element.meID = dataUser._id);
         setCards(dataCard);
       })
+      .catch(error => console.error(`Ошибка при попытке загрузить карточки ${error}`))
   }, [])
 
     return(
