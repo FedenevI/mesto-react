@@ -2,7 +2,7 @@ import Header from "./Header/Header";
 import Main from "./Main/Main";
 import Footer from "./Footer/Footer";
 import PopupWithForm from "./PopupWithForm/PopupWithForm";
-import PopupImage from "./PopupImage/PopupImage";
+import ImagePopup from "./ImagePopup/ImagePopup";
 import { useState } from "react";
 
 function App() {
@@ -145,7 +145,7 @@ function App() {
    titleBtn='да'
    />
 
-  <PopupImage card={selectedCard} isOpen={openImage} isClose={closeAllPopups}/>
+  <ImagePopup card={selectedCard} isOpen={openImage} isClose={closeAllPopups}/>
 
 
 
