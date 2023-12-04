@@ -1,26 +1,10 @@
-import { useEffect, useState } from "react"
-import api from "../../utils/api";
+import { useContext } from "react"
 import Card from "../Card/Card";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
+import Spinner from "../Spinner/Spinner";
 
-export default function Main({onEditProfile, onAddPlace, onEditAvatar, onCardOpen}) {
-
-  const [userName, setUserName] = useState('');
-  const [userDescription, setUserDescription] = useState('');
-  const [userAvatar, setUserAvatar] = useState('');
-  const [cards, setCards] = useState([]);
-
-  useEffect(() => {
-    Promise.all([api.getInfo(), api.getCards()])
-      .then(([dataUser, dataCard]) => {
-        setUserName(dataUser.name);
-        setUserDescription(dataUser.about);
-        setUserAvatar(dataUser.avatar);
-        dataCard.forEach(element => element.meID = dataUser._id);
-        setCards(dataCard);
-      })
-      .catch(error => console.error(`Ошибка при попытке загрузить карточки ${error}`))
-  }, [])
-
+export default function Main({onEditProfile, onAddPlace, onEditAvatar, onCardOpen, onDelete, cards, isLoading}) {
+  const currentUser = useContext(CurrentUserContext);
     return(
         <main className="main">
       {/* Profile start */}
@@ -28,14 +12,14 @@ export default function Main({onEditProfile, onAddPlace, onEditAvatar, onCardOpe
         <div className="profile__items">
           <button type="button" className="profile__avatar-button" onClick={onEditAvatar}>
             <img
-              src={userAvatar}
+              src={currentUser.avatar ? currentUser.avatar : '#'}
               alt="аватар пользователя"
               className="profile__avatar"
             />
           </button>
           <div className="profile__info">
-            <h1 className="profile__title">{userName}</h1>
-            <p className="profile__subtitle">{userDescription}</p>
+            <h1 className="profile__title">{currentUser.name ? currentUser.name : ''}</h1>
+            <p className="profile__subtitle">{currentUser.about ? currentUser.about : ''}</p>
             <button
               type="button"
               className="profile__edit-button"
@@ -53,19 +37,16 @@ export default function Main({onEditProfile, onAddPlace, onEditAvatar, onCardOpe
       </section>
       {/* Profile end */}
       {/* Elements start */}
-      <section className="elements">
-        
-          {cards.map(element => {
+      <section className="elements">    
+          {isLoading ? <Spinner /> : cards.map(element => {
             return(
             <div id="place-template" key={element._id}> 
-            <Card card={element} onCardOpen={onCardOpen}/>
+            <Card card={element} onCardOpen={onCardOpen} onDelete={onDelete}/>
             </div>
             )
           })}
-        
-       
       </section>
-      {/* Elements start */}
+      {/* Elements end */}
     </main>
     )
 }

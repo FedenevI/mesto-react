@@ -1,7 +1,12 @@
-export default function Card({card, onCardOpen}) {
+import { useContext } from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
+import ButtonLike from "../ButtonLike/ButtonLike";
+
+export default function Card({card, onCardOpen, onDelete}) {
+    const currentUser = useContext(CurrentUserContext);
     return(
     <article className="element">
-        <button className="element__trash-button" type="button" />
+        {currentUser._id === card.owner._id && <button className="element__trash-button" type="button" onClick={() => onDelete(card._id)}/>}
         <img 
         className="element__img" 
         alt={`Изображение ${card.name}`}
@@ -10,14 +15,15 @@ export default function Card({card, onCardOpen}) {
         <div className="element__description">
           <div className="element__sign">
               <h2 className="element__title">{card.name}</h2>
-                <div className="element__like-section">
+              <ButtonLike likes={card.likes} meID={currentUser._id} cardid={card._id}/>
+                {/* <div className="element__like-section">
                     <button
                     className="element__like-but"
                     type="button"
                     aria-label="Нравиться"
                     />
-                    <span className="element__counter" />
-                </div>
+                    <span className="element__counter">{card.likes.length}</span>
+                </div> */}
           </div>
         </div>
     </article>
