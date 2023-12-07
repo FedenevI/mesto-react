@@ -16,14 +16,6 @@ export default function Card({card, onCardOpen, onDelete}) {
           <div className="element__sign">
               <h2 className="element__title">{card.name}</h2>
               <ButtonLike likes={card.likes} meID={currentUser._id} cardid={card._id}/>
-                {/* <div className="element__like-section">
-                    <button
-                    className="element__like-but"
-                    type="button"
-                    aria-label="Нравиться"
-                    />
-                    <span className="element__counter">{card.likes.length}</span>
-                </div> */}
           </div>
         </div>
     </article>

@@ -6,6 +6,9 @@
 /* Header start */
 @import url(./blocks/header/header.css);
 @import url(./blocks/header/__logo/header__logo.css);
+@import url(./blocks/header/__condition/header__condition.css);
+@import url(./blocks/header/__log/header__log.css);
+@import url(./blocks/header/__mail/header__mail.css);
 /* Header end */
 
 /* Profile start */
@@ -53,8 +56,10 @@
 @import url(./blocks/popup/_visible/popup__error_visible.css);
 @import url(./blocks/popup/__button/_disabled/popup__button_disabled.css);
 @import url(./blocks/popup/__title/__title-delete/popup__title_delete.css);
+@import url(./blocks/popup/__title/_margin/popup__title_margin.css);
 @import url(./blocks/popup/__delete/popup__delete-button/popup__delete-button.css);
 @import url(./blocks/popup/__delete/popup__delete-form/popup__delete-form.css);
+@import url(./blocks/popup/__logo/popup__logo.css);
 
 /* Popup end */
 
@@ -62,3 +67,14 @@
 @import url(./blocks/popup-image/__wrapper/popup-image__wrapper.css);
 @import url(./blocks/popup-image/__name/popup-image__name.css);
 @import url(./blocks/popup-image/__container/popup-image__container.css);
+
+
+/* Regist */
+
+@import url(./blocks/registration/registration.css);
+@import url(./blocks/registration/__button/registration__button.css);
+@import url(./blocks/registration/__form/registration__form.css);
+@import url(./blocks/registration/__input/registration__input.css);
+@import url(./blocks/registration/__subtitle/registration__subtitle.css);
+@import url(./blocks/registration/__subtitle/_color/registration__subtitle_color_white.css);
+@import url(./blocks/registration/__title/registration__title.css);
