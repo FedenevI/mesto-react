@@ -1,7 +1,23 @@
-# Здесь будет ваш проект на Реакте с авторизацией и регистрацией
+# Mesto React
+Это сервис, где пользователь может делиться фотографими с другими пользователями, а также просматривать фотографии других. Сервис доступен на таких разрешениях: 1280px, 1024px, 768px, 320px.
 
-Используйте ваши предыдущие наработки по проекту Mesto. Это может быть работа 11-го спринта или его улучшенная версия после 2-х последних спринтов. 
+---
+- Добавление / удаление карточек
+- Изменение информациии о себе
+- Редактирование аватара
+- Постановка / удаление лайков
+---
+## Технологии:
+![React](https://img.shields.io/badge/-React-090909?style=for-the-badge&logo=React) 
+![JavaScript](https://img.shields.io/badge/-JavaScript-090909?style=for-the-badge&logo=JavaScript)
+![Webpack](https://img.shields.io/badge/-Webpack-090909?style=for-the-badge&logo=Webpack)
+![HTML5](https://img.shields.io/badge/-HTML5-090909?style=for-the-badge&logo=HTML5)
+![CSS3](https://img.shields.io/badge/-CSS3-090909?style=for-the-badge&logo=CSS3)
 
-Все запросы на авторизацию, регистрацию и проверку токена должны работать через сервис `https://auth.nomoreparties.co`. Остальные запросы, не относящиеся к этой проектной работе могут быть к бэкенду из предыдущих спринтов.
-
-Успехов!
+## Инструкция по установке:
+1. Клонировать репозиторий 
+`git clone https://github.com/Sonyamaster1/mesto-react`
+2. Установить зависимости
+`npm install`
+3. Запустить локально
+`npm start`
